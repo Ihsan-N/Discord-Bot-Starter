@@ -19,13 +19,24 @@ npm i discord.js
 Get your bot token from **[Discord Developer Portal](https://discord.com/developers/docs)**
 
 ```javascript
-const Discord = require("discord.js"); //discord.js lib
-const client = new Discord.Client(); 
- 
+const Discord = require("discord.js");
+const client = new Discord.Client({
+  intents: [
+    "GUILDS",
+    "GUILD_MESSAGES",
+  ],
+});
+
+
+
+client.on('ready', () => {
+  console.log("I'm in");
+  console.log(client.user.username);
+});
 
 let prefix = "!";// or use the prefix that you want 
 
-client.on("message", (message) => {
+client.on("messageCreate", (message) => {
 
   if (!message.content.startsWith(prefix) || message.author.bot) return;
  
@@ -34,10 +45,8 @@ client.on("message", (message) => {
  
   }
 });
- 
-client.login("your bot token");//your discord bot token from Developer Portal
 
-//end of the code 
+client.login(token)//your discord bot token from Developer Portal
 ```
 To Start the Bot Use `node index.js` in the terminal.
 
