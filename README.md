@@ -1,4 +1,4 @@
-# Discord-Bot-
+# Discord-Bot-Starter
 A basic discord bot 
 # Basic Discord.js Bot
 
